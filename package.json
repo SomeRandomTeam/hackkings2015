@@ -4,6 +4,7 @@
   "description": "An encrypted chat application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,17 @@
   "bugs": {
     "url": "https://github.com/szekelyszilv/hackkings2015/issues"
   },
-  "homepage": "https://github.com/szekelyszilv/hackkings2015#readme"
+  "homepage": "https://github.com/szekelyszilv/hackkings2015#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "consolidate": "^0.13.1",
+    "dotenv": "^1.2.0",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "htmling": "0.0.7",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.1",
+    "morgan": "^1.6.1"
+  }
 }
