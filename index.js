@@ -20,6 +20,14 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var db = mongoose.connect(process.env.DB_CONN);
+require('./models');
+
+app.use(function(req, res, next) {
+  req.db = db;
+  next();
+});
+
 app.use('/', require('./router'));
 
 http.createServer(app).listen(process.env.PORT, function() {
