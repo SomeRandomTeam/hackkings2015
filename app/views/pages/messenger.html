@@ -138,8 +138,6 @@
                         <!--div class="panel-heading">
                             <!--i class="fa fa-comments fa-fw"></i>
                             Chat -->
-
-
                         <!-- /.panel-heading -->
                         <!-- place the timeline here -->
                           <!--/div-->
@@ -150,14 +148,15 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">{{ m.Name }}</h4>
+                                            <!--h4 class="timeline-title">{{ m.Name }}</h4-->
+                                            <p><b>{{ m.Name }}</b></p>
                                         </div>
                                         <div class="timeline-body">
                                             <p>{{ m.Country }}</p>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="timeline-inverted">
+                                <!--li class="timeline-inverted">
                                     <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
                                     </div>
                                     <div class="timeline-panel">
@@ -169,7 +168,7 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
                                         </div>
                                     </div>
-                                </li>
+                                </li-->
                             </ul>
                         </div>
                         <!-- /.panel-body -->
@@ -229,7 +228,6 @@
       window.onload = function() {
         document.getElementById('chatHolder').style.height = (window.innerHeight - 120) + "px";
       } </script>
-
 </body>
 
 </html>
