@@ -267,7 +267,12 @@
 
     <script language="javascript">
       var toggleSelectState = function(a) {
-        document.getElementById(a).className = "btn btn-danger";
+        if (document.getElementById(a).className == "btn") {
+          document.getElementById(a).className = "btn btn-danger";
+        }
+        else {
+          document.getElementById(a).className = "btn";
+        }
       }
       window.onresize = function() {
         document.getElementById('chatHolder').style.height = (window.innerHeight - 120) + "px";
