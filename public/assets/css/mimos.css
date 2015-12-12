@@ -26,6 +26,11 @@ body {
         border-left: 1px solid #e7e7e7;
     }
 }
+
+.panel {
+        margin-bottom: 0px;
+}
+
 .navbar-top-links {
     margin-right: 0;
 }
