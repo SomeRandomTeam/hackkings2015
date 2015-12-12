@@ -18,12 +18,9 @@ mymosApp.controller('UserController', function($scope, $http) {
 mymosApp.controller('ProfileController', function($scope, $http) {
     $http.get("/api/getmyself")
     .then(function(r) {
-      return $http.get("/api/users/" + r._id);
+      return $http.get("/api/users/" + r.data._id);
     }).then(function(t) {
-      $scope.$apply(function() {
         $scope.prof = t;
-      })
-
     });
 
 });
