@@ -4,7 +4,7 @@
   "description": "An encrypted chat application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node_modules/forever/bin/forever -c node_modules/nodemon/bin/nodemon.js index.js --exitcrash",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,10 +30,12 @@
     "dotenv": "^1.2.0",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
+    "forever": "^0.15.1",
     "htmling": "0.0.7",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.1",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "nodemon": "^1.8.1"
   }
 }
