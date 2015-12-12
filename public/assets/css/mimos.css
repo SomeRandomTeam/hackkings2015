@@ -13,12 +13,13 @@ body {
 }
 
 #page-wrapper {
-    padding: 0 15px;
-    min-height: 568px;
+    /* padding: 0 15px;*/
+    padding: 0 0px;
+    min-height: 100px;
     background-color: #fff;
 }
 
-@media(min-width:768px) {
+@media(min-width:100px) {
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 250px;
@@ -76,6 +77,7 @@ body {
     background-color:#D76B5D;
     color:#D76B5D;
     border-radius:0;
+    height: 60px;
 }
 
 .navbar-top-links .dropdown-messages {
@@ -130,19 +132,19 @@ body {
 }
 
 .sidebar .nav-second-level li a {
-    padding-left: 37px;
+    padding-left: 36px;
 }
 
 .sidebar .nav-third-level li a {
     padding-left: 52px;
-}
+} 
 
 @media(min-width:768px) {
     .sidebar {
         z-index: 1;
         position: absolute;
         width: 250px;
-        margin-top: 51px;
+        margin-top: 60px;
     }
 
     .navbar-top-links .dropdown-messages,
@@ -150,6 +152,11 @@ body {
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
+}
+
+.btn-mymos{
+    background-color: white;
+    padding-bottom: 6px;
 }
 
 .btn-outline {
@@ -216,7 +223,7 @@ body {
 }
 
 .chat-panel .panel-body {
-    height: 350px;
+    height: 100px;
     overflow-y: scroll;
 }
 
