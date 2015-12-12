@@ -122,6 +122,9 @@
                         <!-- /.panel-heading -->
                         <!-- place the timeline here -->
                           <!--/div-->
+                        <!--div class="crop">
+                            <img src="/assets/img/backgroundPattern.jpg" alt="..." />
+                        </div-->
                         <div id="chatHolder" class="panel-body">
                             <ul class="timeline">
                                 <li ng-repeat="m in messages">
@@ -204,10 +207,10 @@
         }
       }
       window.onresize = function() {
-        document.getElementById('chatHolder').style.height = (window.innerHeight - 120) + "px";
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 100) + "px";
       }
       window.onload = function() {
-        document.getElementById('chatHolder').style.height = (window.innerHeight - 120) + "px";
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 100) + "px";
       } </script>
 </body>
 
