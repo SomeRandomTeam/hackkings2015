@@ -35,7 +35,7 @@
 
 </head>
 
-<body ng-controller="mymosController" style="background-color:#D76B5D">
+<body style="background-color:#D76B5D">
 
     <div id="wrapper" >
 
@@ -56,13 +56,14 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px">
                         <!--<i class="fa fa-user fa-fw"></i-->  <i class="fa fa-caret-down" style="color:black"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw" ></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -72,16 +73,17 @@
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
+
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div ng-controller="UserController"  class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Look for friends...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
                                         <i class="fa fa-search"></i>
@@ -90,33 +92,12 @@
                             </div>
                             <!-- /User sidebar generation -->
                         </li>
-                        <li>
-                          <button type="button" id="btn1" class="btn" onclick="toggleSelectState('btn1')" style="width:100%">
+                        <li ng-repeat="u in users">
+                          <button type="button" id="{{u.Country}}" class="btn" onclick="toggleSelectState('{{u.Country}}')" style="width:100%">
                             <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             User 1
+                             {{u.Name}}
                           </button>
                         </li>
-                        <button type="button" id="btn2" class="btn" onclick="toggleSelectState('btn2')" style="width:100%">
-                            <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             User 2
-                          </button>
-                          <button type="button" id="btn3" class="btn" onclick="toggleSelectState('btn3')" style="width:100%">
-                            <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             User 3
-                          </button>
-                          <button type="button" id="btn4" class="btn" onclick="toggleSelectState('btn4')" style="width:100%">
-                            <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             User 4
-                          </button>
-                          <button type="button" id="btn5" class="btn" onclick="toggleSelectState('btn5')" style="width:100%">
-                            <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             User 5
-                          </button>
-                          <button type="button" id="btn6" class="btn" onclick="toggleSelectState('btn6')" style="width:100%">
-                            <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             User 6
-                          </button>
-                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -134,7 +115,7 @@
                     <!-- /.col-lg-12 >
                 </div-->
                 <!-- /.row -->
-                <div class="chat-panel panel panel-default">
+                <div ng-controller="MessageController"  class="chat-panel panel panel-default">
                         <!--div class="panel-heading">
                             <!--i class="fa fa-comments fa-fw"></i>
                             Chat -->
