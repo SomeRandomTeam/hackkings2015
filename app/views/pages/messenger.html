@@ -87,13 +87,12 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                          <button type="button" id="btn1" class="btn btn-primary">
+                          <button type="button" id="btn1" class="btn" onclick="toggleSelectState('btn1')">
                             <!--div class="row">
                             </div-->
                               <!--div class="col-lg-3"-->
                             <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                              <!--/div--> 
-                            Name goes here
+                             Name goes here
                           </button>
                         </li>
                     </ul>
@@ -267,11 +266,14 @@
     <script src="/assets/js/sb-admin-2.js"></script>
 
     <script language="javascript">
+      var toggleSelectState = function(a) {
+        document.getElementById(a).className = "btn btn-danger";
+      }
       window.onresize = function() {
-        document.getElementById('chatHolder').style.height = (window.innerHeight - 150) + "px";
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 120) + "px";
       }
       window.onload = function() {
-        document.getElementById('chatHolder').style.height = (window.innerHeight - 150) + "px";
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 120) + "px";
       } </script>
 
 </body>
