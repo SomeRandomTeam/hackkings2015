@@ -8,6 +8,7 @@ db.model('User', new Schema({
     minlength: [5, 'The value of path `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length ({MINLENGTH}).']
   },
   publicKey: String,
+  picture: { data: Buffer, contentType: String },
   friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   whitelisted: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   blacklisted: [{ type: Schema.Types.ObjectId, ref: 'User' }],
