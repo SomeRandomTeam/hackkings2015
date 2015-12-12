@@ -1,8 +1,8 @@
-use 'strict';
+'use strict';
 
-var mimosController = angular.module('mimosController', []);
+var mymosController = angular.module('mymosController', []);
 
-mimosController.controller('MessagesCtrl', [$scope,
-  function($scope) {
-
+mymosController.controller('MessagesCtrl', ['$scope', 'Messages',
+  function($scope, Messages) {
+    $scope.messages = Messages.query();
   }]);

@@ -1,12 +1,11 @@
-use 'strict';
+'use strict';
 
-var mimosApp = angular.module('mimosApp', [
+var mymosApp = angular.module('mymosApp', [
   'ngRoute',
-  'mimosController',
-  'mimosServices'
+  'mymosServices'
 ]);
 
-mimosApp.config(['$routeProvider',
-  function($routeProvider) {
-
-  }]);
+mymosApp.controller('mymosController', function($scope, $http) {
+    $http.get("http://www.w3schools.com/angular/customers.php")
+    .then(function(response) {$scope.messages = response.data.records;});
+});

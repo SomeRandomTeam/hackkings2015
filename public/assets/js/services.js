@@ -1,8 +1,10 @@
-use 'strict';
+'use strict';
 
-var mimosServices = angular.module('mimosServices', ['ngResource']);
+var mymosServices = angular.module('mymosServices', ['ngResource']);
 
-mimosServices.factory('Message', ['$resource',
+mymosServices.factory('Message', ['$resource',
   function($resource) {
-
+    return $resource('/assets/mData/:messageId.json', {}, {
+      query: {method:'GET', params:{messageId:'messages'}, isArray:true}
+    });
   }]);
