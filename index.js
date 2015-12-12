@@ -12,7 +12,7 @@ require('dotenv').load();
 var app = module.exports = express();
 
 app.set('views', path.join(__dirname, 'app', 'views'));
-app.engine('html', cons.htmling);
+app.engine('html', cons.ejs);
 app.set('view engine', 'html');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
