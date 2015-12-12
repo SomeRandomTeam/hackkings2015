@@ -22,7 +22,10 @@ router.get('/pages/:page', function(req, res) {
 
 var getUser = function(req, res, next) {
   User.findById(req.params.user)
-      .populate('friends whitelisted blacklisted receivedMessages')
+      .populate('friends', 'name publicKey')
+      .populate('whitelisted', 'name publicKey')
+      .populate('blacklisted', 'name publicKey')
+      .populate('receivedMessages')
       .exec(function(err, user) {
     if(err) {
       res.status(500).json(err);
@@ -82,8 +85,22 @@ router.route('/api/users/:user/picture').all(getUser).get(function(req, res) {
   res.end(req.user.picture.data);
 });
 
-router.route('/api/users/:user/addfriend').all(getUser).post(function(req, res) {
-  req.user.friends.push(req.body);
+router.route('/api/users/:user/friends').all(getUser)
+.get(function(req, res) {
+  res.json(req.user.friends);
+}).post(function(req, res) {
+  req.user.depopulate('friends');
+  req.user.friends.push(req.body._id);
+  req.user.save(function(err) {
+    if(err) {
+      res.status(500).json(err);
+    } else {
+      res.status(200).end();
+    }
+  });
+}).delete(function(req, res) {
+  req.user.depopulate('friends');
+  req.user.friends.pull(req.body._id);
   req.user.save(function(err) {
     if(err) {
       res.status(500).json(err);
