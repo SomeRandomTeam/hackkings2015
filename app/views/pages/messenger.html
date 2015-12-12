@@ -21,7 +21,7 @@
     <link href="/assets/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/assets/css/mimos.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -118,10 +118,11 @@
                             <!--i class="fa fa-comments fa-fw"></i>
                             Chat -->
 
-                        </div>
+
                         <!-- /.panel-heading -->
                         <!-- place the timeline here -->
-                        <div class="panel-body">
+                          </div>
+                        <div id="chatHolder" class="panel-body">
                             <ul class="timeline">
                                 <li>
                                     <div class="timeline-badge"><i class="fa fa-check"></i>
@@ -264,6 +265,11 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
+
+    <script language="javascript">
+      window.onload = function() {
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 150) + "px";
+      } </script>
 
 </body>
 
