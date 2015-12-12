@@ -83,7 +83,7 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Look for friends...">
+                                <input ng-model="query" type="text" class="form-control" placeholder="Look for friends...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
                                         <i class="fa fa-search"></i>
@@ -92,7 +92,7 @@
                             </div>
                             <!-- /User sidebar generation -->
                         </li>
-                        <li ng-repeat="u in users">
+                        <li ng-repeat="u in users | filter:query">
                           <button type="button" id="{{u.Country}}" class="btn" onclick="toggleSelectState('{{u.Country}}')" style="width:100%">
                             <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
                              {{u.Name}}
