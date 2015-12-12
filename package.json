@@ -4,7 +4,7 @@
   "description": "An encrypted chat application",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/forever/bin/forever -c node_modules/nodemon/bin/nodemon.js index.js --exitcrash",
+    "start": "node_modules/forever/bin/forever --minUptime 0ms -c node_modules/nodemon/bin/nodemon.js index.js --exitcrash",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
