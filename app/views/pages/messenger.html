@@ -93,7 +93,7 @@
                             <!-- /User sidebar generation -->
                         </li>
                         <li ng-repeat="u in users | filter:query">
-                          <button type="button" id="{{u.Country}}" class="btn" onclick="toggleSelectState('{{u.Country}}')" style="width:100%">
+                          <button class="btn btn-mymos" type="button" id="{{u.Country}}" onclick="toggleSelectState('{{u.Country}}')" style="width:100%">
                             <img src="/assets/img/img1.jpg" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
                              {{u.Name}}
                           </button>
