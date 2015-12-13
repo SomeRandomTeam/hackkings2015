@@ -77,6 +77,10 @@
                   </span>
                 </div>
               </li>
+            </ul>
+              <div class="friend-panel panel panel-default">
+              <div id="sidePanel" class="panel-body">
+              <ul class="nav" id="side-menu">
               <li ng-repeat="friend in user.friends| filter:query">
                 <button class="btn btn-mymos" type="button" id="{{friend._id}}" ng-click="toggleSelectState(friend)" style="width:100%">
                   {{friend.name}}
@@ -91,6 +95,18 @@
                 </button>
               </li>
             </ul>
+          </div>
+          <div class="panel-footer">
+            <div class="input-group">
+              <input ng-model="query" type="text" class="form-control" placeholder="Add New Friends...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </nav>
@@ -169,9 +185,11 @@ var toggleSelectState = function(a) {
 }
 window.onresize = function() {
   document.getElementById('chatHolder').style.height = (window.innerHeight - 110) + "px";
+  document.getElementById('sidePanel').style.height = (window.innerHeight - 175) + "px";
 }
 window.onload = function() {
   document.getElementById('chatHolder').style.height = (window.innerHeight - 110) + "px";
+  document.getElementById('sidePanel').style.height = (window.innerHeight - 175) + "px";
 } </script>
   </body>
 
