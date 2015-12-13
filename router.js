@@ -152,7 +152,7 @@ router.route('/api/sendmessage').post(function(req, res) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
               console.log('sending message to user-' + receiver._id);
-              pusher.trigger('user-' + receiver._id, 'msg', message);
+              pusher.trigger('message-channel', 'msg', message);
             });
           });
         }

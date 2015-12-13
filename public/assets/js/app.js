@@ -16,12 +16,20 @@ mymosApp.controller('MessengerController', function($scope, $http) {
       $scope.decrypt(msg);
     });
     var pusher = new Pusher('bb284c431c720bb80b2e');
-    var channel = pusher.subscribe('user-' + user._id);
+    var channel = pusher.subscribe('message-channel');
     channel.bind('msg', function(msg) {
-      $scope.$apply(function() {
-        $scope.user.messages.push(msg);
+      var forMe = msg.receivers.some(function(e) {
+        return e._id == $scope.user._id;
       });
-      $scope.decrypt(msg);
+      if(!forMe) {
+        console.log('message discarded');
+      }
+      if(forMe) {
+        $scope.$apply(function() {
+          $scope.user.messages.push(msg);
+        });
+        $scope.decrypt(msg);
+      }
     });
   });
 
