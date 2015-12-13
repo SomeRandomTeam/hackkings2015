@@ -99,7 +99,7 @@
           <div class="panel-footer">
             <div class="input-group">
               <input ng-model="query" type="text" class="form-control" placeholder="Add New Friends...">
-              <span class="input-group-btn">
+              <span class="input-group-btn" ng-click="">
                 <button class="btn btn-default" type="button">
                   <i class="fa fa-plus"></i>
                 </button>
@@ -175,22 +175,25 @@
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
 
     <script language="javascript">
-var toggleSelectState = function(a) {
-  if (document.getElementById(a).className == "btn btn-mymos") {
-    document.getElementById(a).className = "btn btn-danger";
-  }
-  else {
-    document.getElementById(a).className = "btn btn-mymos";
-  }
-}
-window.onresize = function() {
-  document.getElementById('chatHolder').style.height = (window.innerHeight - 105) + "px";
-  document.getElementById('sidePanel').style.height = (window.innerHeight - 165) + "px";
-}
-window.onload = function() {
-  document.getElementById('chatHolder').style.height = (window.innerHeight - 105) + "px";
-  document.getElementById('sidePanel').style.height = (window.innerHeight - 165) + "px";
-} </script>
+
+      
+
+      var toggleSelectState = function(a) {
+        if (document.getElementById(a).className == "btn btn-mymos") {
+          document.getElementById(a).className = "btn btn-danger";
+        } else {
+          document.getElementById(a).className = "btn btn-mymos";
+        }
+      }
+      window.onresize = function() {
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 105) + "px";
+        document.getElementById('sidePanel').style.height = (window.innerHeight - 165) + "px";
+      }
+      window.onload = function() {
+        document.getElementById('chatHolder').style.height = (window.innerHeight - 105) + "px";
+        document.getElementById('sidePanel').style.height = (window.innerHeight - 165) + "px";
+      }
+  </script>
   </body>
 
 </html>

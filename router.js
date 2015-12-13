@@ -2,6 +2,7 @@ var _ = require('lodash');
 var express = require('express');
 var router = module.exports = express.Router();
 var path = require('path');
+var multer = require('multer');
 
 var db = require('mongoose');
 var User = db.model('User');
@@ -55,8 +56,11 @@ var getUser = function(req, res, next) {
   });
 };
 
-router.route('/api/users').post(function(req, res) {
+router.route('/api/users')
+.post(multer().single('picture'), function(req, res) {
   var user = new User(req.body);
+  user.picture.contentType = req.file.mimetype;
+  user.picture.data = req.file.buffer;
   user.save(function(err) {
     if(err) {
       res.status(500).json(err);
