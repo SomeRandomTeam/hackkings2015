@@ -3,6 +3,7 @@ var express = require('express');
 var router = module.exports = express.Router();
 var path = require('path');
 var multer = require('multer');
+var fs = require('fs');
 
 var db = require('mongoose');
 var User = db.model('User');
@@ -59,8 +60,22 @@ var getUser = function(req, res, next) {
 router.route('/api/users')
 .post(multer().single('picture'), function(req, res) {
   var user = new User(req.body);
-  user.picture.contentType = req.file.mimetype;
-  user.picture.data = req.file.buffer;
+  if(req.file) {
+    user.picture.contentType = req.file.mimetype;
+    user.picture.data = req.file.buffer;
+  } else {
+    var imgDir = path.join(__dirname, 'public', 'assets', 'img');
+    var imgNames = [
+      "leafBLUISH.png",
+      "leafGREEEENNN.png",
+      "leafGREEEEYYY.png",
+      "leafREEEEED.png",
+      "leafYELLOWWWW.png"
+    ];
+    var idx = Math.floor(Math.random() * imgNames.length);
+    user.picture.data = fs.readFileSync(path.join(imgDir, imgNames[idx]));
+    user.picture.contentType = 'image/png';
+  }
   user.save(function(err) {
     if(err) {
       res.status(500).json(err);
