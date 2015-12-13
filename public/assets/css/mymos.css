@@ -21,6 +21,7 @@ body {
 
 @media(min-width:100px) {
     #page-wrapper {
+        min-height: 100px;
         position: inherit;
         margin: 0 0 0 250px;
         padding: 0 0px;
@@ -227,6 +228,11 @@ body {
 .panel .slidedown .glyphicon,
 .chat .glyphicon {
     margin-right: 5px;
+}
+
+.panel-body {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .chat-panel .panel-body {
