@@ -10,7 +10,11 @@ var Message = db.model('Message');
 var appDir = path.join(__dirname, 'app');
 
 router.get('/', function(req, res) {
-  res.render('index');
+  if(req.cookies.userId) {
+    res.redirect('/pages/messenger');
+  } else {
+    res.redirect('/pages/login');
+  }
 });
 
 router.get('/:page', function(req, res) {
