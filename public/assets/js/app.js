@@ -32,6 +32,15 @@ mymosApp.controller('MessengerController', function($scope, $http) {
     $scope.users = users;
   });
 
+  $scope.selectRec = function(message) {
+    for(var i = 0; i < $scope.user.friends.length; i++) {
+      var friend = $scope.user.friends[i];
+      friend.selected = message.receivers.some(function(e) {
+        return e == friend._id;
+      });
+    }
+  }
+
   $scope.decrypt = function(msg) {
     var encryptedMessage = atob(msg.content);
     var key = localStorage.getItem('privateKey');

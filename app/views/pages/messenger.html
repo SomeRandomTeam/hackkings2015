@@ -118,7 +118,7 @@
                       <div id="chatHolder" class="panel-body">
                         <ul class="timeline">
                           <li ng-repeat="message in user.messages" class="{{getSide(message)}}">
-                            <div class="timeline-badge">
+                            <div class="timeline-badge" ng-click="selectRec(message)">
                               <img src="/api/users/{{message.sender._id}}/picture" ng-show="user" alt="Img Missing" class="img-circle img-responsive" width="50px" height="50px">
                             </div>
                             <div class="timeline-panel">
