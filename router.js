@@ -107,7 +107,14 @@ router.route('/api/getmyself').get(function(req, res) {
   });
 });
 
-router.route('/api/users/:user').all(getUser).post(function(req, res) {
+router.route('/api/users/:user').all(getUser)
+.post(multer().single('picture'), function(req, res) {
+  if(req.file) {
+    req.body.picture = {
+      data: req.file.buffer,
+      contentType: req.file.mimetype
+    };
+  }
   User.findOneAndUpdate({ _id: req.user._id}, req.body, function(err, doc) {
     if(err) {
       res.status(500).json(err);

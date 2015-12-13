@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mymosApp">
 
 <head>
 
@@ -28,18 +28,21 @@
 
 </head>
 
-<body style="background-color:#D76B5D">
+<body style="background-color:#D76B5D" ng-controller="MessengerController">
 <br><br>
 <font color="white">
-<h2><center><b>Your Profile</b></center></h2>
+  <h2><center><b>{{user.name}}</b></center></h2>
 <br><br>
 <!-- INSERT PTOFILE PICTURE HERE-->
-<img src="/assets/img/leafBLUISH.png" width="200px" class="img-responsive center-block">
+<img src="/api/users/{{user._id}}/picture" width="200px" class="img-responsive center-block">
 <br>
     <div class="container">
         <div class="row">
             <p><center><b> Change Avatar</b></p>
+            <form role="form" action="/api/users" method="POST" enctype="multipart/form-data">
             <input type="file" name="picture" accept=".png,.jpg"/>
+            <input type="submit" class="btn btn-lg btn-danger btn-block" value="Upload new picture"/>
+            </form>
             <br><br></font>
             <div class="panel panel-default">
                 <div class="panel-heading">Friends:</div>
