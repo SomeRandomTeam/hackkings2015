@@ -19,7 +19,7 @@ db.model('User', new Schema({
 db.model('Message', new Schema({
   content: String,
   timestamp: Date,
-  _creator: { type: Schema.Types.ObjectId, ref: 'User' },
+  sender: { type: Schema.Types.ObjectId, ref: 'User' },
   receivers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }));
 

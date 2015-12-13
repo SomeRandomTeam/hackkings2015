@@ -25,7 +25,20 @@ var getUser = function(req, res, next) {
       .populate('friends', 'name publicKey')
       .populate('whitelisted', 'name publicKey')
       .populate('blacklisted', 'name publicKey')
-      .populate('receivedMessages')
+      .populate({
+        path: 'sentMessages',
+        populate: {
+          path: 'sender',
+          select: 'name publicKey'
+        }
+      })
+      .populate({
+        path: 'receivedMessages',
+        populate: {
+          path: 'sender',
+          select: 'name publicKey'
+        }
+      })
       .exec(function(err, user) {
     if(err) {
       res.status(500).json(err);
@@ -109,3 +122,41 @@ router.route('/api/users/:user/friends').all(getUser)
     }
   });
 });
+
+router.route('/api/users/:user/messages').all(getUser)
+.get(function(req, res) {
+  res.json({
+    sentMessages: req.user.sentMessages,
+    receivedMessages: req.user.receivedMessages
+  });
+});
+
+router.route('/api/sendmessage').post(function(req, res) {
+  var recipients = req.body.receivers;
+  var message = new Message(req.body);
+  console.log(message);
+  message.save(function(err, message) {
+    console.log(message);
+    if(err) {
+      res.status(500).json(err);
+    } else {
+      message.populate('sender receivers', function(err) {
+        if(err) {
+          res.status(500).json(err);
+        } else {
+          message.sender.sentMessages.push(message._id);
+          message.sender.save(function(err) {
+          });
+          console.log(message.receivers);
+          message.receivers.forEach(function(receiver) {
+            receiver.receivedMessages.push(message._id);
+            receiver.save(function(err) {
+            });
+          });
+        }
+        res.status(200).end();
+      });
+    }
+  });
+});
+
