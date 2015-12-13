@@ -355,6 +355,11 @@ table.dataTable thead .sorting:after {
     border-color: #5cb85c;
 }
 
+.panel .panel-default {
+    width = 250px;
+}
+
+
 .panel-green .panel-heading {
     border-color: #5cb85c;
     color: #fff;

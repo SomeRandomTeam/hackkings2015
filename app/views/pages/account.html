@@ -40,30 +40,31 @@
         <div class="row">
             <p><center><b> Change Avatar</b></p>
             <input type="file" name="picture" accept=".png,.jpg"/>
-            <br><br>
-            <h3>Friends:</h3>
-            <div id="sidePanel" class="panel-body">
-              <ul class="nav" id="side-menu">
-              <li ng-repeat="friend in user.friends| filter:query">
-                <button class="btn btn-mymos" type="button" id="{{friend._id}}" ng-click="toggleSelectState(friend)" style="width:100%">
-                  {{friend.name}}
-                  <span ng-show="friend.selected">*</span>
-                </button>
-              </li>
-              <li ng-repeat="usr in users | filter:query" ng-hide="usr._id == user._id">
-                <button class="btn btn-mymos" type="button" id="{{usr._id}}" ng-click="toggleSelectState(usr)" style="width:100%">
-                  <img src="/assets/img/cham1greyugly.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                  {{usr.name}}
-                  <span ng-show="usr.selected">*</span>
-                </button>
-              </li>
-            </ul>
-          </div>
+            <br><br></font>
+            <div class="panel panel-default">
+                <div class="panel-heading">Friends:</div>
+                <li class="list-group-item">
+                  <li ng-repeat="friend in user.friends| filter:query">
+                    <p><img src="/assets/img/cham1greyugly.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
+                      {{friend.name}}
+                      <span ng-show="friend.selected">*</span>
+                    </p>
+                  </li>
+                </li>
+              </div>
+            </div>
         </div>
     </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/controllers.js"></script>
+    <script src="/assets/js/filters.js"></script>
+    <script src="/assets/js/services.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -76,12 +77,11 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/mymos.js"></script>
-
     <script src="/assets/js/openpgp.min.js"></script>
     <script src="/assets/js/openpgp.worker.min.js"></script>
     <script src="/assets/js/genkeypair.js"></script>
 
-</font></center>
+</center>
 </body>
 
 </html>
