@@ -35,6 +35,10 @@ body {
     margin-bottom: 0px;
 }
 
+.navbar-brand-logo {
+    padding-left: 25px;
+}
+
 .navbar-top-links {
     margin-right: 0;
 }
@@ -226,7 +230,6 @@ body {
 }
 
 .chat-panel .panel-body {
-    background-image: url("/assets/img/backgroundPattern.jpg");
     height: 100px;
     overflow-y: scroll;
 }
