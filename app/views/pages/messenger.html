@@ -81,7 +81,7 @@
               <div class="friend-panel panel-default">
               <div id="sidePanel" class="panel-body">
               <ul class="nav" id="side-menu">
-              <li ng-repeat="friend in user.friends| filter:query">
+              <li ng-repeat="friend in user.friends">
                 <button class="btn btn-mymos" type="button" id="{{friend._id}}" ng-click="toggleSelectState(friend)" style="width:100%">
                   {{friend.name}}
                   <span ng-show="friend.selected">*</span>
