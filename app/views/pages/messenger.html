@@ -94,14 +94,13 @@
               </li>
               <li ng-repeat="friend in user.friends| filter:query">
                 <button class="btn btn-mymos" type="button" id="{{friend._id}}" ng-click="toggleSelectState(friend)" style="width:100%">
-                  <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
                   {{friend.name}}
                   <span ng-show="friend.selected">*</span>
                 </button>
               </li>
               <li ng-repeat="user in users | filter:query">
                 <button class="btn btn-mymos" type="button" id="{{user._id}}" ng-click="toggleSelectState(user)" style="width:100%">
-                  <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
+                  <img src="/assets/img/cham1LIGHTBLUE.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
                   {{user.name}}
                   <span ng-show="user.selected">*</span>
                 </button>
