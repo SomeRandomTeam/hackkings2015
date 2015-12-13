@@ -56,14 +56,13 @@
           <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Friends:</div>
-                <li class="list-group-item">
-                  <li ng-repeat="friend in user.friends| filter:query">
-                    <p><img src="/assets/img/cham1greyugly.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
+                <div class="panel-body">
+                <ul class="list-group-item">
+                  <li ng-repeat="friend in user.friends">
                       {{friend.name}}
-                      <span ng-show="friend.selected">*</span>
-                    </p>
                   </li>
-                </li>
+                </ul>
+              </div>
               </div>
             </div>
             </div>
