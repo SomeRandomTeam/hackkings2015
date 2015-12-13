@@ -3,8 +3,6 @@
 var mymosApp = angular.module('mymosApp', []);
 
 mymosApp.controller('MessengerController', function($scope, $http) {
-    // $http.get("http://www.w3schools.com/angular/customers.php")
-    // .then(function(response) {$scope.messages = response.data.records;});
   $http.get("/api/getmyself")
   .then(function(me) {
     return me.data._id;
@@ -16,6 +14,22 @@ mymosApp.controller('MessengerController', function($scope, $http) {
     $scope.user = user;
     user.messages.forEach(function(msg) {
       $scope.decrypt(msg);
+    });
+    var pusher = new Pusher('bb284c431c720bb80b2e');
+    var channel = pusher.subscribe('message-channel');
+    channel.bind('msg', function(msg) {
+      var forMe = msg.receivers.some(function(e) {
+        return e._id == $scope.user._id;
+      });
+      if(!forMe) {
+        console.log('message discarded');
+      }
+      if(forMe) {
+        $scope.$apply(function() {
+          $scope.user.messages.push(msg);
+        });
+        $scope.decrypt(msg);
+      }
     });
   });
 
@@ -56,7 +70,7 @@ mymosApp.controller('MessengerController', function($scope, $http) {
   $scope.sendMessage = function() {
     var message = {};
     message.sender = $scope.user._id;
-    message.receivers = [];
+    message.receivers = [$scope.user._id];
     var keys = [];
     var ks = openpgp.key.readArmored($scope.user.publicKey).keys;
     for(var j = 0; j < ks.length; j++) {
