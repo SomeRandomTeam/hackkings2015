@@ -41,6 +41,13 @@ mymosApp.controller('MessengerController', function($scope, $http) {
     }
   }
 
+  $scope.getFriendSelected = function(friend) {
+    if(friend.selected) {
+      return "btn-danger";
+    }
+    return "btn-mymos";
+  }
+
   $scope.decrypt = function(msg) {
     var encryptedMessage = atob(msg.content);
     var key = localStorage.getItem('privateKey');
