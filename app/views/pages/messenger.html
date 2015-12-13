@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="mymosApp">
 
+
 <head >
 
     <meta charset="utf-8">
@@ -35,7 +36,7 @@
 
 </head>
 
-<body style="background-color:#D76B5D">
+<body style="background-color:#D76B5D"
 
     <div id="wrapper" >
 
@@ -188,6 +189,8 @@
     <script src="/assets/js/filters.js"></script>
     <script src="/assets/js/services.js"></script>
 
+    <sript src="/assets/js/color.js"></>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
@@ -198,6 +201,7 @@
     <script src="/assets/js/sb-admin-2.js"></script>
 
     <script language="javascript">
+      
       var toggleSelectState = function(a) {
         if (document.getElementById(a).className == "btn btn-mymos") {
           document.getElementById(a).className = "btn btn-danger";
@@ -211,6 +215,7 @@
         
       }
       window.onload = function() {
+
         document.getElementById('chatHolder').style.height = (window.innerHeight-110) + "px";
       } </script>
 </body>
