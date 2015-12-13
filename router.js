@@ -9,6 +9,14 @@ var Message = db.model('Message');
 
 var appDir = path.join(__dirname, 'app');
 
+var Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: process.env.PUSHER_APP_ID,
+  key: process.env.PUSHER_KEY,
+  secret: process.env.PUSHER_SECRET
+});
+
 router.get('/', function(req, res) {
   if(req.cookies.userId) {
     res.redirect('/pages/messenger');
@@ -149,6 +157,9 @@ router.route('/api/sendmessage').post(function(req, res) {
           message.receivers.forEach(function(receiver) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
+              message.populate('sender', function(err, message) {
+                pusher.trigger('user-' + receiver._id, 'msg', message);
+              });
             });
           });
         }
