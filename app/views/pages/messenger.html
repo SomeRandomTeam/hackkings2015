@@ -26,13 +26,6 @@
     <!-- Custom Fonts -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
   </head>
 
   <body style="background-color:#D76B5D" ng-controller="MessengerController">
@@ -50,16 +43,13 @@
           </button>
           <a class="navbar-brand-logo" href="credits.html">
             <img src="/assets/img/logo2-1.png" width="200px">
-            <!--font color="black">Mimos</font-->
           </a>
         </div>
-        <!-- /.navbar-header -->
-        <!--h4><font color="black">BOB</font></h4-->
         <ul class="nav navbar-top-links navbar-right">
           <li class="dropdown" >
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px">
-              <!--<i class="fa fa-user fa-fw"></i-->  <i class="fa fa-caret-down" style="color:black"></i>
+              <i class="fa fa-caret-down" style="color:black"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
               <li>
@@ -71,12 +61,8 @@
               <li><a href="export.html"><i class="fa fa-sign-out fa-fw"></i> Export</a>
               </li>
             </ul>
-            <!-- /.dropdown-user -->
           </li>
-
-          <!-- /.dropdown -->
         </ul>
-        <!-- /.navbar-top-links -->
 
         <div class="navbar-default sidebar" role="navigation">
           <div class="sidebar-nav navbar-collapse">
@@ -90,7 +76,6 @@
                     </button>
                   </span>
                 </div>
-                <!-- /User sidebar generation -->
               </li>
               <li ng-repeat="friend in user.friends| filter:query">
                 <button class="btn btn-mymos" type="button" id="{{friend._id}}" ng-click="toggleSelectState(friend)" style="width:100%">
@@ -107,31 +92,13 @@
               </li>
             </ul>
           </div>
-          <!-- /.sidebar-collapse -->
         </div>
-        <!-- /.navbar-static-side -->
       </nav>
 
-      <!-- Page Content -->
       <div id="page-wrapper">
         <div class="container-fluid">
-          <!--div class="row">
-            <div class="col-lg-12">
-            <!--h1 class="page-header">Some Random Heading Goes Here</h1-->
             </div>
-            <!-- /.col-lg-12 >
-              </div-->
-              <!-- /.row -->
               <div class="chat-panel panel panel-default">
-                <!--div class="panel-heading">
-                  <!--i class="fa fa-comments fa-fw"></i>
-                    Chat -->
-                    <!-- /.panel-heading -->
-                    <!-- place the timeline here -->
-                    <!--/div-->
-                    <!--div class="crop">
-                      <img src="/assets/img/backgroundPattern.jpg" alt="..." />
-                      </div-->
                       <div id="chatHolder" class="panel-body">
                         <ul class="timeline">
                           <li ng-repeat="message in user.messages" class="{{getSide(message)}}">
@@ -139,7 +106,6 @@
                             </div>
                             <div class="timeline-panel">
                               <div class="timeline-heading">
-                                <!--h4 class="timeline-title">{{ m.Name }}</h4-->
                                 <p><b>{{ message.sender.name }}</b></p>
                               </div>
                               <div class="timeline-body">
@@ -147,22 +113,8 @@
                               </div>
                             </div>
                           </li>
-                          <!--li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                            </div>
-                            <div class="timeline-panel">
-                            <div class="timeline-heading">
-                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
-                            </div>
-                            </div>
-                            </li-->
                         </ul>
                       </div>
-                      <!-- /.panel-body -->
                       <div class="panel-footer">
                         <div class="input-group">
                           <input id="btn-input" type="text" ng-model="message" class="form-control input-sm" placeholder="Type your message here..." />
@@ -173,15 +125,11 @@
                           </span>
                         </div>
                       </div>
-                      <!-- /.panel-footer -->
       </div>
     </div>
-    <!-- /.container-fluid -->
     </div>
-    <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
