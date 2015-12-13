@@ -150,16 +150,10 @@ router.route('/api/sendmessage').post(function(req, res) {
         if(err) {
           res.status(500).json(err);
         } else {
-          message.sender.messages.push(message._id);
-          message.sender.save(function(err) {
-          });
-          console.log(message.receivers);
           message.receivers.forEach(function(receiver) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
-              message.populate('sender', function(err, message) {
-                pusher.trigger('user-' + receiver._id, 'msg', message);
-              });
+              pusher.trigger('user-' + receiver._id, 'msg', message);
             });
           });
         }
