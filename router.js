@@ -140,9 +140,7 @@ router.route('/api/users/:user/messages').all(getUser)
 router.route('/api/sendmessage').post(function(req, res) {
   req.body.receivers = _.uniq(req.body.receivers);
   var message = new Message(req.body);
-  console.log(message);
   message.save(function(err, message) {
-    console.log(message);
     if(err) {
       res.status(500).json(err);
     } else {
@@ -153,6 +151,7 @@ router.route('/api/sendmessage').post(function(req, res) {
           message.receivers.forEach(function(receiver) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
+              console.log('sending message to user-' + receiver._id);
               pusher.trigger('user-' + receiver._id, 'msg', message);
             });
           });
