@@ -120,7 +120,7 @@ router.route('/api/users/:user').all(getUser)
       res.status(500).json(err);
       return;
     }
-    res.status(200).end();
+    res.redirect('/pages/account');
   });
 }).get(function(req, res) {
   res.json(req.user);
