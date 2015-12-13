@@ -58,6 +58,15 @@ mymosApp.controller('MessengerController', function($scope, $http) {
     friend.selected = !friend.selected;
   };
 
+  $scope.addFriend = function(frnd){
+    for(var i = 0; i < $scope.users.length; i++) {
+      if ($scope.users[i].name == frnd) {
+        $http.post('/api/users/' + $scope.user._id + '/friends', { _id: $scope.users[i]._id });
+        $scope.user.friends.push(users[i]);
+      }
+    }
+  };
+
   $scope.sendMessage = function() {
     var message = {};
     message.sender = $scope.user._id;
@@ -87,6 +96,7 @@ mymosApp.controller('MessengerController', function($scope, $http) {
         }
       }
     }
+
     openpgp.encryptMessage(keys, $scope.message).then(function(pgpMessage) {
       message.content = btoa(pgpMessage);
       $http.post("/api/sendmessage", message);
@@ -95,5 +105,5 @@ mymosApp.controller('MessengerController', function($scope, $http) {
       });
     });
   };
-});
 
+});

@@ -87,19 +87,19 @@
                   <span ng-show="friend.selected">*</span>
                 </button>
               </li>
-              <li ng-repeat="usr in users | filter:query" ng-hide="usr._id == user._id">
+              <!--li ng-repeat="usr in users | filter:query" ng-hide="usr._id == user._id">
                 <button class="btn btn-mymos" type="button" id="{{usr._id}}" ng-click="toggleSelectState(usr)" style="width:100%">
                   <img src="/assets/img/cham1greyugly.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
                   {{usr.name}}
                   <span ng-show="usr.selected">*</span>
                 </button>
-              </li>
+              </li-->
             </ul>
           </div>
           <div class="panel-footer">
             <div class="input-group">
-              <input ng-model="query" type="text" class="form-control" placeholder="Add New Friends...">
-              <span class="input-group-btn" ng-click="">
+              <input ng-model="getFriend" type="text" class="form-control" placeholder="Add New Friends...">
+              <span class="input-group-btn" ng-click="addFriend(getFriend)">
                 <button class="btn btn-default" type="button">
                   <i class="fa fa-plus"></i>
                 </button>
@@ -175,8 +175,6 @@
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
 
     <script language="javascript">
-
-      
 
       var toggleSelectState = function(a) {
         if (document.getElementById(a).className == "btn btn-mymos") {
