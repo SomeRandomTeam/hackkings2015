@@ -62,7 +62,7 @@ mymosApp.controller('MessengerController', function($scope, $http) {
     for(var i = 0; i < $scope.users.length; i++) {
       if ($scope.users[i].name == frnd) {
         $http.post('/api/users/' + $scope.user._id + '/friends', { _id: $scope.users[i]._id });
-        $scope.user.friends.push(users[i]);
+        $scope.user.friends.push($scope.users[i]);
       }
     }
   };
