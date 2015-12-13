@@ -1,5 +1,5 @@
 {
-  "name": "ehackchat",
+  "name": "mymos",
   "version": "0.1.0",
   "description": "An encrypted chat application",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/szekelyszilv/hackkings2015.git"
   },
   "keywords": [
-    "chat",
+    "groupchat",
     "encrypted",
     "hackkings",
     "privacy",
