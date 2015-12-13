@@ -46,9 +46,9 @@
             <img src="/api/users/{{user._id}}/picture" width="200px" class="img-responsive center-block">
 
             <p><center><b> Change Avatar</b></p>
-            <form role="form" action="/api/users" method="POST" enctype="multipart/form-data">
+            <form role="form" action="{{'/api/users/' + user._id}}" method="POST" enctype="multipart/form-data">
             <input type="file" name="picture" accept=".png,.jpg"/>
-          </br>
+            </br>
             <input type="submit" class="btn btn-lg btn-danger" value="Upload new picture"/>
             </form>
             <br><br></font>
