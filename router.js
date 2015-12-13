@@ -152,6 +152,8 @@ router.route('/api/sendmessage').post(function(req, res) {
           message.receivers.forEach(function(receiver) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
+              console.log('sending ' + message._id + ' message to user-' + receiver._id);
+              pusher.trigger('user-' + receiver._id, 'msg', message._id);
             });
           });
         }
@@ -161,3 +163,15 @@ router.route('/api/sendmessage').post(function(req, res) {
   });
 });
 
+router.route('/api/messages/:message').get(function(req, res) {
+  Message.findById(req.params.message)
+    .populate('sender', 'name publicKey')
+    .populate('receivers', 'name publicKey')
+    .exec(function(err, message) {
+      if(err) {
+        res.status(500).json(err);
+      } else {
+        res.json(message);
+      }
+  });
+});
