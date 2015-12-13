@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="mymosApp">
 
+<<<<<<< HEAD
 
 <head >
+=======
+  <head >
+>>>>>>> 8ee7e39afc759e8c9d15056541b9d7aee0f92c63
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,10 +34,11 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<<<<<<< HEAD
 </head>
 
 <body style="background-color:#D76B5D"
@@ -76,103 +81,155 @@
                 </li>
 
                 <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
+=======
+  </head>
 
-            <div ng-controller="UserController"  class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input ng-model="query" type="text" class="form-control" placeholder="Look for friends...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /User sidebar generation -->
-                        </li>
-                        <li ng-repeat="f in friends| filter:query">
-                          <button class="btn btn-mymos" type="button" id="{{f._id}}" ng-click="toggleSelectState('{{f._id}}')" style="width:100%">
-                            <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
-                             {{f.name}}
-                          </button>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+  <body style="background-color:#D76B5D" ng-controller="MessengerController">
 
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <!--div class="row">
-                    <div class="col-lg-12">
-                        <!--h1 class="page-header">Some Random Heading Goes Here</h1-->
-                    </div>
-                    <!-- /.col-lg-12 >
-                </div-->
-                <!-- /.row -->
-                <div ng-controller="MessageController"  class="chat-panel panel panel-default">
-                        <!--div class="panel-heading">
-                            <!--i class="fa fa-comments fa-fw"></i>
-                            Chat -->
-                        <!-- /.panel-heading -->
-                        <!-- place the timeline here -->
-                          <!--/div-->
-                        <!--div class="crop">
-                            <img src="/assets/img/backgroundPattern.jpg" alt="..." />
-                        </div-->
-                        <div id="chatHolder" class="panel-body">
-                            <ul class="timeline">
-                                <li ng-repeat="m in messages">
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <!--h4 class="timeline-title">{{ m.Name }}</h4-->
-                                            <p><b>{{ m.Name }}</b></p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>{{ m.Country }}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!--li class="timeline-inverted">
-                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
-                                        </div>
-                                    </div>
-                                </li-->
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger btn-sm" id="btn-chat">
-                                        Send
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- /.panel-footer -->
-                    </div>
-            </div>
-            <!-- /.container-fluid -->
+    <div id="wrapper">
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand-logo" href="credits.html">
+            <img src="/assets/img/logo2-1.png" width="200px">
+            <!--font color="black">Mimos</font-->
+          </a>
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.navbar-header -->
+        <!--h4><font color="black">BOB</font></h4-->
+        <ul class="nav navbar-top-links navbar-right">
+          <li class="dropdown" >
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px">
+              <!--<i class="fa fa-user fa-fw"></i-->  <i class="fa fa-caret-down" style="color:black"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li>
+                <a href="#"><i class="fa fa-user fa-fw" ></i> {{user.name}} </a>
+              </li>
+              <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+              </li>
+>>>>>>> 8ee7e39afc759e8c9d15056541b9d7aee0f92c63
+            </ul>
+            <!-- /.dropdown-user -->
+          </li>
+
+          <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                  <input ng-model="query" type="text" class="form-control" placeholder="Look for friends...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+                <!-- /User sidebar generation -->
+              </li>
+              <li ng-repeat="friend in user.friends| filter:query">
+                <button class="btn btn-mymos" type="button" id="{{friend._id}}" ng-click="toggleSelectState(friend)" style="width:100%">
+                  <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
+                  {{friend.name}}
+                  <span ng-show="friend.selected">*</span>
+                </button>
+              </li>
+              <li ng-repeat="user in users | filter:query">
+                <button class="btn btn-mymos" type="button" id="{{user._id}}" ng-click="toggleSelectState(user)" style="width:100%">
+                  <img src="/assets/img/cham1.png" alt="Img Missing" class="img-circle img-responsive" align="left" width="30px"></img>
+                  {{user.name}}
+                  <span ng-show="user.selected">*</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+      </nav>
+
+      <!-- Page Content -->
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <!--div class="row">
+            <div class="col-lg-12">
+            <!--h1 class="page-header">Some Random Heading Goes Here</h1-->
+            </div>
+            <!-- /.col-lg-12 >
+              </div-->
+              <!-- /.row -->
+              <div class="chat-panel panel panel-default">
+                <!--div class="panel-heading">
+                  <!--i class="fa fa-comments fa-fw"></i>
+                    Chat -->
+                    <!-- /.panel-heading -->
+                    <!-- place the timeline here -->
+                    <!--/div-->
+                    <!--div class="crop">
+                      <img src="/assets/img/backgroundPattern.jpg" alt="..." />
+                      </div-->
+                      <div id="chatHolder" class="panel-body">
+                        <ul class="timeline">
+                          <li ng-repeat="message in user.messages" class="{{getSide(message)}}">
+                            <div class="timeline-badge"><i class="fa fa-check"></i>
+                            </div>
+                            <div class="timeline-panel">
+                              <div class="timeline-heading">
+                                <!--h4 class="timeline-title">{{ m.Name }}</h4-->
+                                <p><b>{{ message.sender.name }}</b></p>
+                              </div>
+                              <div class="timeline-body">
+                                <p>{{ message.content }}</p>
+                              </div>
+                            </div>
+                          </li>
+                          <!--li class="timeline-inverted">
+                            <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+                            </div>
+                            <div class="timeline-panel">
+                            <div class="timeline-heading">
+                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
+                            </div>
+                            <div class="timeline-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                            </div>
+                            </div>
+                            </li-->
+                        </ul>
+                      </div>
+                      <!-- /.panel-body -->
+                      <div class="panel-footer">
+                        <div class="input-group">
+                          <input id="btn-input" type="text" ng-model="message" class="form-control input-sm" placeholder="Type your message here..." />
+                          <span class="input-group-btn">
+                            <button ng-click="sendMessage()" class="btn btn-danger btn-sm" id="btn-chat">
+                              Send
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                      <!-- /.panel-footer -->
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
@@ -181,9 +238,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
     <!-- AngularJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-route.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/controllers.js"></script>
     <script src="/assets/js/filters.js"></script>
@@ -199,6 +254,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
+
+    <script src="/assets/js/openpgp.min.js"></script>
+    <script src="/assets/js/openpgp.worker.min.js"></script>
+    <script src="/assets/js/genkeypair.js"></script>
 
     <script language="javascript">
       
