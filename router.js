@@ -148,11 +148,10 @@ router.route('/api/sendmessage').post(function(req, res) {
         if(err) {
           res.status(500).json(err);
         } else {
+          pusher.trigger('message-channel', 'msg', message);
           message.receivers.forEach(function(receiver) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
-              console.log('sending message to user-' + receiver._id);
-              pusher.trigger('message-channel', 'msg', message);
             });
           });
         }
