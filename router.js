@@ -4,6 +4,7 @@ var router = module.exports = express.Router();
 var path = require('path');
 var multer = require('multer');
 var fs = require('fs');
+var messagebird = require('messagebird')(process.env.MESSAGE_BIRD_SECRET);
 
 var db = require('mongoose');
 var User = db.model('User');
@@ -163,6 +164,8 @@ router.route('/api/users/:user/messages').all(getUser)
   });
 });
 
+var smsDelays = [];
+
 router.route('/api/sendmessage').post(function(req, res) {
   req.body.receivers = _.uniq(req.body.receivers);
   var message = new Message(req.body);
@@ -174,12 +177,28 @@ router.route('/api/sendmessage').post(function(req, res) {
         if(err) {
           res.status(500).json(err);
         } else {
-          pusher.trigger('message-channel', 'msg', message);
           message.receivers.forEach(function(receiver) {
             receiver.messages.push(message._id);
             receiver.save(function(err) {
               console.log('sending ' + message._id + ' message to user-' + receiver._id);
               pusher.trigger('user-' + receiver._id, 'msg', message._id);
+              if(receiver.phoneNumber) {
+                smsDelays.push({
+                  id: receiver._id,
+                  timeoutObject: setTimeout(function() {
+                    console.log("sending message");
+                    messagebird.messages.create({
+                      originator: "Mymos",
+                      body: "You have a new unread message",
+                      recipients: receiver.phoneNumber
+                    }, function(err) {
+                      if(err) {
+                        res.status(500).json(err);
+                      }
+                    });
+                  }, 1000 * 5)
+                });
+              }
             });
           });
         }
@@ -187,6 +206,18 @@ router.route('/api/sendmessage').post(function(req, res) {
       });
     }
   });
+});
+
+router.route('/api/ping').post(function(req, res) {
+  for(var i = 0; i < smsDelays.length; i++) {
+    if(req.cookies.userId == smsDelays[i].id) {
+      console.log("message sending cancelled");
+      if(smsDelays[i].timeoutObject) {
+        clearTimeout(smsDelays[i].timeoutObject);
+        smsDelays[i].timeoutObject = null;
+      }
+    }
+  }
 });
 
 router.route('/api/messages/:message').get(function(req, res) {

@@ -9,6 +9,7 @@ db.model('User', new Schema({
   },
   publicKey: String,
   picture: { data: Buffer, contentType: String },
+  phoneNumber: String,
   friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   whitelisted: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   blacklisted: [{ type: Schema.Types.ObjectId, ref: 'User' }],

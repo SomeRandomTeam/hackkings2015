@@ -49,6 +49,10 @@
             <form role="form" action="{{'/api/users/' + user._id}}" method="POST" enctype="multipart/form-data">
             <input type="file" name="picture" accept=".png,.jpg"/>
             </br>
+            <div class="form-group">
+            </br>
+              <input class="form-control" placeholder="Phone number" name="phoneNumber" type="string">
+            </div>
             <input type="submit" class="btn btn-lg btn-danger" value="Upload new picture"/>
             </form>
             <br><br></font>

@@ -22,6 +22,7 @@ mymosApp.controller('MessengerController', function($scope, $http) {
         $scope.user.messages.push(res.data);
         $scope.decrypt(res.data);
       });
+      $http.post('/api/ping').then(function(res) {});
     });
   });
 
@@ -39,14 +40,14 @@ mymosApp.controller('MessengerController', function($scope, $http) {
         return e == friend._id;
       });
     }
-  }
+  };
 
   $scope.getFriendSelected = function(friend) {
     if(friend.selected) {
       return "btn-danger";
     }
     return "btn-mymos";
-  }
+  };
 
   $scope.decrypt = function(msg) {
     var encryptedMessage = atob(msg.content);
