@@ -12,8 +12,7 @@ db.model('User', new Schema({
   friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   whitelisted: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   blacklisted: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  sentMessages: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
-  receivedMessages: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
+  messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
 }));
 
 db.model('Message', new Schema({

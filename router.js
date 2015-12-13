@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var express = require('express');
 var router = module.exports = express.Router();
 var path = require('path');
@@ -26,14 +27,7 @@ var getUser = function(req, res, next) {
       .populate('whitelisted', 'name publicKey')
       .populate('blacklisted', 'name publicKey')
       .populate({
-        path: 'sentMessages',
-        populate: {
-          path: 'sender',
-          select: 'name publicKey'
-        }
-      })
-      .populate({
-        path: 'receivedMessages',
+        path: 'messages',
         populate: {
           path: 'sender',
           select: 'name publicKey'
@@ -132,7 +126,7 @@ router.route('/api/users/:user/messages').all(getUser)
 });
 
 router.route('/api/sendmessage').post(function(req, res) {
-  var recipients = req.body.receivers;
+  req.body.receivers = _.uniq(req.body.receivers);
   var message = new Message(req.body);
   console.log(message);
   message.save(function(err, message) {
@@ -144,12 +138,12 @@ router.route('/api/sendmessage').post(function(req, res) {
         if(err) {
           res.status(500).json(err);
         } else {
-          message.sender.sentMessages.push(message._id);
+          message.sender.messages.push(message._id);
           message.sender.save(function(err) {
           });
           console.log(message.receivers);
           message.receivers.forEach(function(receiver) {
-            receiver.receivedMessages.push(message._id);
+            receiver.messages.push(message._id);
             receiver.save(function(err) {
             });
           });
