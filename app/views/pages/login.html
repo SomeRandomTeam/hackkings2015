@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Mimos</title>
+    <title>Mymos</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -21,7 +21,7 @@
     <link href="/assets/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/assets/css/mimos.css" rel="stylesheet">
+    <link href="/assets/css/mymos.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
 
 </head>
 
-<body style="background-color:#D76B5D">
+<body onload="return get_random_color()">
 <!-- width is hardcoded: fix -->
 <br>
 <img src="/assets/img/logo2-1.png" width="800px" class="img-responsive center-block">
@@ -63,6 +63,15 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+    function get_random_color() { //function name
+            var color = '#'; // hexadecimal starting symbol
+            var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; //Set your colors here
+            color += letters[Math.floor(Math.random() * letters.length)];
+            document.getElementById('header').style.borderBottom = color; // Setting the random color on your div element.
+        }
+    </script>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
@@ -74,9 +83,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
 
     <script src="/assets/js/openpgp.min.js"></script>
     <script src="/assets/js/openpgp.worker.min.js"></script>
