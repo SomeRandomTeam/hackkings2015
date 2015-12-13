@@ -36,6 +36,11 @@ body {
     margin-bottom: 0px;
 }
 
+.form-control {
+    padding: 3px 3px;
+    height: 30px;
+}
+
 .navbar-brand-logo {
     padding-left: 25px;
 }
@@ -160,6 +165,11 @@ body {
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
+}
+
+.btn-default {
+    height: 30px;
+    padding: 3 3 6 6;
 }
 
 .btn-mymos{
@@ -335,6 +345,10 @@ table.dataTable thead .sorting:after {
 
 .huge {
     font-size: 40px;
+}
+
+.panel-footer {
+    padding: 6px;
 }
 
 .panel-green {
