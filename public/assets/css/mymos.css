@@ -232,6 +232,7 @@ body {
 .chat-panel .panel-body {
     height: 100px;
     overflow-y: scroll;
+    background-image: url("/assets/img/backgroundPattern.png");
 }
 
 .login-panel {
