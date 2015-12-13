@@ -186,7 +186,7 @@ router.route('/api/sendmessage').post(function(req, res) {
                 smsDelays.push({
                   id: receiver._id,
                   timeoutObject: setTimeout(function() {
-                    console.log("sending message");
+                    console.log('sending message to ' + receiver.phoneNumber);
                     messagebird.messages.create({
                       originator: "Mymos",
                       body: "You have a new unread message",
@@ -218,6 +218,7 @@ router.route('/api/ping').post(function(req, res) {
       }
     }
   }
+  res.status(200).end();
 });
 
 router.route('/api/messages/:message').get(function(req, res) {
