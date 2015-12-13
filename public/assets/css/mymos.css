@@ -236,12 +236,14 @@ body {
 }
 
 .chat-panel .panel-body {
+    padding: 0px;
     height: 100px;
     overflow-y: scroll;
     background-image: url("/assets/img/backgroundPattern.png");
 }
 
 .friend-panel .panel-body {
+    padding: 0px;
     height: 100px;
     overflow-y: scroll;
     background-color: #D76B5D;
